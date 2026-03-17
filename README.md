@@ -1,2 +1,0 @@
-# olaproject
-collage project demo 
