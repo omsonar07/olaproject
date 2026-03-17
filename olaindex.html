@@ -1,1 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Taxi Booking Website</title>
 
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+body{overflow-x:hidden;}
+
+nav{
+    background:rgba(0,0,0,0.75);
+    padding:15px;
+    text-align:center;
+    position:fixed;
+    width:100%;
+    top:0;
+}
+
+nav button{
+    padding:10px;
+    margin:5px;
+    background:#ffc107;
+    border:none;
+    cursor:pointer;
+}
+
+.page{
+    display:none;
+    height:100vh;
+    color:white;
+    text-align:center;
+    padding-top:120px;
+}
+
+.box{
+    background:rgba(0,0,0,0.6);
+    width:350px;
+    margin:auto;
+    padding:20px;
+}
+
+input, select, textarea{
+    width:90%;
+    padding:10px;
+    margin:5px;
+}
+
+button.action{
+    width:90%;
+    padding:10px;
+    background:#ffc107;
+    border:none;
+    cursor:pointer;
+}
+
+#home{background:url("https://images.unsplash.com/photo-1542362567-b07e54358753") center/cover;}
+#login{background:url("https://images.unsplash.com/photo-1519681393784-d120267933ba") center/cover;}
+#register{background:url("https://www.shutterstock.com/image-vector/mobile-app-taxi-service-yellow-260nw-2602441711.jpg") center/cover;}
+#booking{background:url("https://images.unsplash.com/photo-1525609004556-c46c7d6cf023") center/cover;}
+#payment{background:url("https://images.unsplash.com/photo-1589758438368-0ad531db3366") center/cover;}
+#profile{background:url("https://www.shutterstock.com/image-vector/taxi-service-online-concept-application-260nw-1722074203.jpg") center/cover;}
+#feedback{background:url("https://images.unsplash.com/photo-1521791136064-7986c2920216") center/cover;}
+</style>
+</head>
+
+<body>
+
+<nav>
+<button onclick="showPage('register')">Register</button>
+<button onclick="showPage('login')">Login</button>
+<button onclick="showPage('home')">Home</button>
+<button onclick="showPage('booking')">Booking</button>
+<button onclick="showPage('payment')">Payment</button>
+<button onclick="showPage('profile')">Profile</button>
+<button onclick="showPage('feedback')">Feedback</button>
+</nav>
+
+<!-- HOME -->
+<div id="home" class="page">
+<div class="box">
+<h2>Book Taxi</h2>
+<input type="text" placeholder="Pickup">
+<input type="text" placeholder="Drop">
+<button class="action" onclick="showPage('booking')">Book</button>
+</div>
+</div>
+
+<!-- LOGIN -->
+<div id="login" class="page">
+<div class="box">
+<h2>Login</h2>
+<input type="text" id="loginMobile" placeholder="Mobile">
+<input type="password" id="loginPass" placeholder="Password">
+<button class="action" onclick="loginUser()">Login</button>
+</div>
+</div>
+
+<!-- REGISTER -->
+<div id="register" class="page">
+<div class="box">
+<h2>Register</h2>
+<input type="text" id="rname" placeholder="Name">
+<input type="email" id="remail" placeholder="Email">
+<input type="text" id="rmobile" placeholder="Mobile">
+<input type="password" id="rpass" placeholder="Password">
+<button class="action" onclick="registerUser()">Register</button>
+</div>
+</div>
+
+<!-- BOOKING -->
+<div id="booking" class="page">
+<div class="box">
+<h2>Select Ride</h2>
+<select>
+<option>Mini ₹150</option>
+<option>Sedan ₹250</option>
+<option>SUV ₹350</option>
+</select>
+<button class="action" onclick="showPage('payment')">Continue</button>
+</div>
+</div>
+
+<!-- PAYMENT -->
+<div id="payment" class="page">
+<div class="box">
+<h2>Payment</h2>
+<select>
+<option>UPI</option>
+<option>Card</option>
+<option>Cash</option>
+</select>
+<button class="action">Pay</button>
+</div>
+</div>
+
+<!-- PROFILE -->
+<div id="profile" class="page">
+<div class="box">
+<h2>Profile</h2>
+<p id="pname"></p>
+<p id="pemail"></p>
+<p id="pmobile"></p>
+</div>
+</div>
+
+<!-- FEEDBACK -->
+<div id="feedback" class="page">
+<div class="box">
+<h2>Feedback</h2>
+<input type="text" id="fname" placeholder="Name">
+<select id="rating">
+<option value="">Rate</option>
+<option>⭐ 1</option>
+<option>⭐ 2</option>
+<option>⭐ 3</option>
+<option>⭐ 4</option>
+<option>⭐ 5</option>
+</select>
+<textarea id="message"></textarea>
+<button class="action" onclick="submitFeedback()">Submit</button>
+<button class="action" onclick="viewFeedback()">View</button>
+<div id="feedbackList"></div>
+</div>
+</div>
+
+<script src="/static/script.js"></script>
+
+</body>
+</html>
